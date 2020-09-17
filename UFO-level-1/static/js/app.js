@@ -14,3 +14,9 @@ tableData.forEach(function(ufo) {
         cell.text(value);
     });
 });
+// 'Filter Table' button
+var button = d3.select("#filter-btn");
+// filter the database and display
+button.on("click", function() {
+    console.log(d3.event.target);
+});
