@@ -21,8 +21,8 @@ button.on("click", function() {
     console.log(d3.event.target);
 });
 
-// Select the button
-var button = d3.select("#filter-btn");
+// // Select the button
+// var button = d3.select("#filter-btn");
 
 // Select the form
 var form = d3.select("#filters");
@@ -43,8 +43,42 @@ function runEnter() {
     console.log(tableData);
 
     // Use the form input to filter the data by datetime
-  var ufodata = tableData.filter(ufo => ufo.datetime === inputValue); 
-  console.log(ufodata);
+  var filterData = tableData.filter(ufo => ufo.datetime === inputValue); 
+  console.log(filterData);
+  //  Display the filtered dataset
+  filterData.forEach(appendTable);
+
+
+  
+    var table = document.getElementById("ufo-table");
+    var tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      var td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(inputValue) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  
+
 };
-// remove any children from the list to
-list.html("");
+
+//Populate tbody with rows and cells needed for filteredData
+function appendTable(report) {
+    var tbody = d3.select("tbody");
+// Assign new appended row into a variable for later use
+    var row = tbody.append('tr');
+
+// Loop through each record
+	Object.entries(report).forEach(([key, value]) => { 
+
+// Append a 'td' element to the row with the value of each key in the object
+    var cell = row.append("td");
+    cell.text(value);
+
+	});
+
+};
