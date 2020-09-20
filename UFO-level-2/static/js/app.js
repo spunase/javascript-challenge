@@ -25,13 +25,18 @@ function runEnter() {
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
-    // Select the input element and get the raw HTML node
-    var inputElement = d3.select("#datetime");
-    // Get the value property of the input element
-    var inputValue = inputElement.property("value");
+    // Select the date element and get the raw HTML node
+    var dateElement = d3.select("#datetime");
+    // Get the value property of the date element
+    var dateValue = dateElement.property("value");
+    // Select the city element and get the raw HTML node
+    var cityElement = d3.select("#city");
+    // Get the value property of the city element
+    var cityValue = cityElement.property("value");
+
 
     // Use the form input to filter the data by datetime
-    var filterData = tableData.filter(ufo => ufo.datetime === inputValue);
+    var filterData = tableData.filter(ufo => ufo.datetime === dateValue || ufo.city === cityValue);
     console.log(filterData);
 
     //Populate tbody with rows and cells needed for filteredData
