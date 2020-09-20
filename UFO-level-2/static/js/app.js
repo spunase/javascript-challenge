@@ -32,11 +32,23 @@ function runEnter() {
     // Select the city element and get the raw HTML node
     var cityElement = d3.select("#city");
     // Get the value property of the city element
-    var cityValue = cityElement.property("value");
+    var cityValue = cityElement.property("value").toLowerCase().trim();
+    // Select the state element and get the raw HTML node
+    var stateElement = d3.select("#state");
+    // Get the value property of the state element
+    var stateValue = stateElement.property("value").toLowerCase().trim();
+    // Select the country element and get the raw HTML node
+    var countryElement = d3.select("#country");
+    // Get the value property of the country element
+    var countryValue = countryElement.property("value").toLowerCase().trim();
+    // Select the shape element and get the raw HTML node
+    var shapeElement = d3.select("#shape");
+    // Get the value property of the shape element
+    var shapeValue = shapeElement.property("value").toLowerCase().trim();
 
 
     // Use the form input to filter the data by datetime
-    var filterData = tableData.filter(ufo => ufo.datetime === dateValue || ufo.city === cityValue);
+    var filterData = tableData.filter(ufo => ufo.datetime === dateValue && ufo.city === cityValue && ufo.state === stateValue && ufo.country === countryValue && ufo.shape === shapeValue);
     console.log(filterData);
 
     //Populate tbody with rows and cells needed for filteredData
