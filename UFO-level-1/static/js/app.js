@@ -43,17 +43,18 @@ function runEnter() {
     // Use the form input to filter the data by datetime
   var filterData = tableData.filter(ufo => ufo.datetime === inputValue); 
   console.log(filterData);
-  
+  // remove any children from the list to
+  // filterData.html("");
 
 
 var tbody = d3.select("tbody");
 // YOUR CODE HERE!
-filterData.forEach(function(ufodata) {
-  console.log(ufodata);
+filterData.forEach(function(ufosighting) {
+  console.log(ufosighting);
   // Use d3 to append one table row `tr` for each ufo report object
   var row = tbody.append("tr");
   //Use `Object.entries` to console.log each ufo report value
-  Object.entries(ufodata).forEach(function([key, value]) {
+  Object.entries(ufosighting).forEach(function([key, value]) {
       console.log(key, value);
       var cell = row.append("td");
       cell.text(value);
