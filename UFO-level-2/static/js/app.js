@@ -51,19 +51,19 @@ function runEnter() {
 
     //  Create if statements for multiple filters
     if (dateValue != "") {
-        var filterData = filterData.filter(ufo => ufo.datetime === dateValue);  
+        filterData = filterData.filter(ufo => ufo.datetime === dateValue);  
     }
     if (cityValue != "") {
-        var filterData = filterData.filter(ufo => ufo.city === cityValue);     
+        filterData = filterData.filter(ufo => ufo.city === cityValue);     
     }
     if (stateValue != "") {
-        var filterData = filterData.filter(ufo => ufo.state === stateValue);     
+        filterData = filterData.filter(ufo => ufo.state === stateValue);     
     }
     if (countryValue != "") {
-        var filterData = filterData.filter(ufo => ufo.country === countryValue);     
+        filterData = filterData.filter(ufo => ufo.country === countryValue);     
     }
     if(shapeValue != "") {
-        var filterData = filterData.filter(ufo => ufo.shape === shapeValue);     
+        filterData = filterData.filter(ufo => ufo.shape === shapeValue);     
     };
        
 
