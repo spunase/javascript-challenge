@@ -47,9 +47,33 @@ function runEnter() {
     var shapeValue = shapeElement.property("value").toLowerCase().trim();
 
 
-    // Use the form input to filter the data by datetime
-    var filterData = tableData.filter(ufo => ufo.datetime === dateValue && ufo.city === cityValue && ufo.state === stateValue && ufo.country === countryValue && ufo.shape === shapeValue);
-    console.log(filterData);
+    // // Use the form input to filter the data by datetime
+    // var filterData = tableData.filter(ufo => ufo.datetime === dateValue || ufo.city === cityValue || ufo.state === stateValue || ufo.country === countryValue || ufo.shape === shapeValue);
+    // console.log(filterData);
+    //  Create if statements for multiple filters
+    
+    
+    
+    if (dateValue != "") {
+
+        filterData = filterData.filter(ufo => ufo.datetime === dateValue);
+        
+    }
+    else if (cityValue != "") {
+        filterData = filterData.filter(ufo => ufo.city === cityValue);     
+    }
+    else if (stateValue != "") {
+        filterData = filterData.filter(ufo => ufo.state === stateValue);     
+    }
+    else if (countryValue != "") {
+        filterData = filterData.filter(ufo => ufo.country === countryValue);     
+    }
+    else if(shapeValue != "") {
+        filterData = filterData.filter(ufo => ufo.shape === shapeValue);     
+    };
+       
+    
+    
 
     //Populate tbody with rows and cells needed for filteredData
     var tbody = d3.select("tbody");
