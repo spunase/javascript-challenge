@@ -52,24 +52,22 @@ function runEnter() {
     // console.log(filterData);
     //  Create if statements for multiple filters
     
-    
+    var filterData = tableData;
     
     if (dateValue != "") {
-
-        filterData = filterData.filter(ufo => ufo.datetime === dateValue);
-        
+        var filterData = filterData.filter(ufo => ufo.datetime === dateValue);  
     }
-    else if (cityValue != "") {
-        filterData = filterData.filter(ufo => ufo.city === cityValue);     
+    if (cityValue != "") {
+        var filterData = filterData.filter(ufo => ufo.city === cityValue);     
     }
-    else if (stateValue != "") {
-        filterData = filterData.filter(ufo => ufo.state === stateValue);     
+    if (stateValue != "") {
+        var filterData = filterData.filter(ufo => ufo.state === stateValue);     
     }
-    else if (countryValue != "") {
-        filterData = filterData.filter(ufo => ufo.country === countryValue);     
+    if (countryValue != "") {
+        var filterData = filterData.filter(ufo => ufo.country === countryValue);     
     }
-    else if(shapeValue != "") {
-        filterData = filterData.filter(ufo => ufo.shape === shapeValue);     
+    if(shapeValue != "") {
+        var filterData = filterData.filter(ufo => ufo.shape === shapeValue);     
     };
        
     
